@@ -1,19 +1,19 @@
 package daoService.DAOimpl;
-
 import daoService.DAO;
 import dbconnection.DatabaseConnection;
 import entity.Address;
 import util.ResultSetMapper;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
+/**
+ * The class provides methods for CRUD operations with the Database.
+ */
 public class AddressDAO implements DAO<Address> {
     private final Connection connection;
     private ResultSet resultSet;

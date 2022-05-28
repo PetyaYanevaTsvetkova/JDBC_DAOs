@@ -1,12 +1,8 @@
 package entity;
-
-import com.github.javafaker.DateAndTime;
 import lombok.*;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import java.io.Serializable;
 import java.sql.Date;
 

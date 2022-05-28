@@ -1,18 +1,16 @@
 package daoService.DAOimpl;
-
 import daoService.DAO;
 import dbconnection.DatabaseConnection;
-import entity.Address;
 import entity.Customer;
 import util.ResultSetMapper;
-
 import java.io.IOException;
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
+/**
+ * The class provides methods for CRUD operations with the Database.
+ */
 public class CustomerDAO implements DAO<Customer> {
     private final Connection connection;
     private ResultSet resultSet;

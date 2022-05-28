@@ -1,16 +1,8 @@
 package entity;
-
 import lombok.*;
-
 import javax.persistence.*;
-import javax.swing.*;
 import java.io.Serializable;
 
-@Builder
-@Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 /**
  * Class of type POJO using Annotations.
  * 'Column' annotations are with 'name' value same as that of SQL column.
@@ -18,6 +10,11 @@ import java.io.Serializable;
  * The annotation 'Entity' is required to mark the class capable of hold database values.
  * The annotation 'Build' is required to use Builder Design Pattern for creating a instance of type Address.
  */
+@Builder
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Address implements Serializable {
     @Id
     @Column(name = "address_id")

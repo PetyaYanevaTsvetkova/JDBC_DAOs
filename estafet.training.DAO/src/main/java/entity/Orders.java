@@ -1,16 +1,19 @@
 package entity;
-
 import lombok.AllArgsConstructor;
-import lombok.CustomLog;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.sql.Date;
 
+/**
+ * Class of type POJO using Annotations.
+ * 'Column' annotations are with 'name' value same as that of SQL column.
+ * The fields are with same type as that of SQL column.
+ * The annotation 'Entity' is required to mark the class capable of hold database values.
+ */
 @Entity
 @Data
 @NoArgsConstructor
