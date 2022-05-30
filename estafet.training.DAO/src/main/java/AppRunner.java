@@ -23,20 +23,20 @@ public class AppRunner {
         customerDAO.save(buildCustomer());
 
         //DeleteById
-        addressDAO.deleteById(28L);
+        addressDAO.deleteById(5L);
         customerDAO.deleteById(3L);
 
         //DeleteAll
-        addressDAO.deleteAll();
-        customerDAO.deleteAll();
+//        addressDAO.deleteAll();
+//        customerDAO.deleteAll();
 
         //GetById
-        addressDAO.getById(25L);
-        customerDAO.getById(1L);
+        addressDAO.getById(5L);
+        customerDAO.getById(7L);
 
         //getByIds
-        addressDAO.getByIds(List.of(1L, 25L, 27L, 30L));
-        customerDAO.getByIds(List.of(2L, 5L, 6L));
+        addressDAO.getByIds(List.of(1L, 3L, 5L));
+        customerDAO.getByIds(List.of(2L, 8L, 6L));
 
         //getAllRecordsCount
         addressDAO.getAllRecordsCount();
