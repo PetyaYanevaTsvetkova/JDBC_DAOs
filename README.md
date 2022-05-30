@@ -82,6 +82,7 @@
 	README.md file
 	estafet.training.DAO
 	.gitignore file
+	DBscript.sql
 
 ## How to Install and Run the Project:
 	SQL: Local database environment setup
