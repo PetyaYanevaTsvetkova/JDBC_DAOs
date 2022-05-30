@@ -106,6 +106,7 @@ public class AddressDAO implements DAO<Address> {
                         .country(resultSet.getString("country"))
                         .build();
             }
+            System.out.printf(String.format("Address with id %d is:%n", id));
             System.out.println(searchedAddress);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -137,6 +138,7 @@ public class AddressDAO implements DAO<Address> {
             e.printStackTrace();
         }
         List<Address> searchedAddresses = resultSetMapper.mapResultSetToObject(this.resultSet, Address.class);
+        System.out.println("Searched addresses are:");
         searchedAddresses
                 .stream()
                 .forEach(System.out::println);
@@ -186,6 +188,7 @@ public class AddressDAO implements DAO<Address> {
                         .postal_code(resultSet.getInt("postal_code"))
                         .country(resultSet.getString("country"))
                         .build();
+                System.out.println("Random address is:");
                 System.out.println(randomAddress);
             }
         } catch (SQLException e) {
@@ -212,7 +215,7 @@ public class AddressDAO implements DAO<Address> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        System.out.printf(String.format("Random %d addresses are:%n", randomCount));
         randomAddresses
                 .stream()
                 .forEach(System.out::println);

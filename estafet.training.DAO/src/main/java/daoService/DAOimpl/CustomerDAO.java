@@ -133,6 +133,7 @@ public class CustomerDAO implements DAO<Customer> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.printf(String.format("Customer with id %d is:%n", id));
         System.out.println(searchedCustomer);
         return searchedCustomer;
     }
@@ -161,6 +162,7 @@ public class CustomerDAO implements DAO<Customer> {
             e.printStackTrace();
         }
         List<Customer> searchedCustomers = resultSetMapper.mapResultSetToObject(this.resultSet, Customer.class);
+        System.out.println("Searched customers are:");
         searchedCustomers
                 .stream()
                 .forEach(System.out::println);
@@ -221,6 +223,7 @@ public class CustomerDAO implements DAO<Customer> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("Random customer is:");
         System.out.println(randomCustomer);
         return randomCustomer;
     }
@@ -243,7 +246,7 @@ public class CustomerDAO implements DAO<Customer> {
         } catch (SQLException e) {
             e.getMessage();
         }
-
+        System.out.printf(String.format("Random %d customers are:%n", randomCount));
         randomCustomers
                 .stream()
                 .forEach(System.out::println);
