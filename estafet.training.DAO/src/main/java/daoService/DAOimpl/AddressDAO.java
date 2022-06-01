@@ -157,7 +157,7 @@ public class AddressDAO implements DAO<Address> {
             ResultSet resultSet = this.preparedStatement.executeQuery();
             if (resultSet.next()) {
                 recordsCount = resultSet.getInt(1);
-                System.out.printf("All records count is: %d%n", recordsCount);
+                System.out.printf("All address records count is: %d%n", recordsCount);
             }
         } catch (SQLException e) {
             e.printStackTrace();

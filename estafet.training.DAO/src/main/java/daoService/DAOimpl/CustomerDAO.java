@@ -181,7 +181,7 @@ public class CustomerDAO implements DAO<Customer> {
             ResultSet resultSet = this.preparedStatement.executeQuery();
             if (resultSet.next()) {
                 recordsCount = resultSet.getInt(1);
-                System.out.printf("All records count is: %d%n", recordsCount);
+                System.out.printf("All customer records count is: %d%n", recordsCount);
             }
         } catch (SQLException e) {
             e.printStackTrace();

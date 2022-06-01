@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS customer_address;
+DROP TABLE IF EXISTS customer; 
+
 CREATE TABLE 
 	customer (
 		customer_id serial PRIMARY KEY NOT NULL,
@@ -12,8 +15,8 @@ CREATE TABLE
 		country VARCHAR(255),
 		consent_status BOOLEAN NOT NULL,
 		is_profile_active BOOLEAN NOT NULL,
-		date_profile_created timestamp DEFAULT CURRENT_timestamp,
-		date_profile_deactivated timestamp,
+		date_profile_created DATE DEFAULT CURRENT_DATE NOT NULL,
+		date_profile_deactivated DATE,
 		reason_for_deactivation VARCHAR(255),
 		notes TEXT);
 
@@ -25,6 +28,22 @@ VALUES
 (2, 'Alice', 'alice@jit.bg', +359878448561, 26, 'Greece', 'Athens', 478, 'Greece', false, true),
 (3, 'Bob', 'bob@fsdg.bg', +359878447561, 46, 'Bulgaria', 'Sliven', 368, 'Bulgaria', true, false),
 (4, 'Charlie', 'charlie@gmail.bg', +359678444561, 64, 'Bulgaria', 'Ruse', 258, 'Bulgaria', true, true);
+
+ 
+ --1:1 relationship between customers and customers_addresses tables:
+CREATE TABLE 
+	customer_address (
+		address_id SERIAL PRIMARY KEY NOT NULL,
+		customer_id INT NOT NULL,
+		address VARCHAR(255),
+		city VARCHAR(255) NOT NULL, 
+		province VARCHAR(255),
+		state_UK VARCHAR(255),
+		postal_code INT CHECK (postal_code > 0),
+		country VARCHAR(255) NOT NULL,
+		CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES customer (customer_id) ON DELETE CASCADE
+		);
+
 
 --Insert only with mandatory fields:
 INSERT INTO 
@@ -59,32 +78,13 @@ VALUES
  and more recently with desktop publishing software like Aldus PageMaker 
  including versions of Lorem Ipsum');
  
- INSERT INTO 
+INSERT INTO 
 	customer (customer_id, name, email, phone, age, city, postal_code, country, consent_status, is_profile_active) 		 			 
 VALUES 
 (9, 'Irk', 'mrk@abv.bg', +359888444561, 25,  'Sofia', 359, 'BG', true, true), 
 (10, 'Ace', '5alice@jit.bg', +359888444561, 26,  'Athens', 478, 'Greece', false, true),
 (11, 'Cjob', 'dbob@fsdg.bg', +359888444561, 46,  'Sliven', 368, 'Bulgaria', true, false),
 (12, 'Caie', 'c2harlie@gmail.bg', +359888444561, 64, 'Ruse', 258, 'Bulgaria', true, true);
- 
- 
- -------------------------------------------
-
-
- --1:1 relationship between customers and customers_addresses tables:
-CREATE TABLE 
-	customer_address (
-		address_id SERIAL PRIMARY KEY NOT NULL,
-		customer_id INT NOT NULL,
-		address VARCHAR(255),
-		city VARCHAR(255) NOT NULL, 
-		province VARCHAR(255),
-		state_UK VARCHAR(255),
-		postal_code INT CHECK (postal_code > 0),
-		country VARCHAR(255) NOT NULL,
-		CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES customer (customer_id) ON DELETE CASCADE
-		);
-
 
 --INSERT some of the fields:
 INSERT INTO 

@@ -18,46 +18,46 @@ public class AppRunner {
         AddressDAO addressDAO = new AddressDAO();
         CustomerDAO customerDAO = new CustomerDAO();
 
-        //Save address:
+        //SaveInDB:
         addressDAO.save(buildAddress());
         customerDAO.save(buildCustomer());
 
         //DeleteById
-        addressDAO.deleteById(6L);
-        customerDAO.deleteById(4L);
+//        addressDAO.deleteById(1L);
+//        customerDAO.deleteById(3L);
+
+        //GetById
+//        addressDAO.getById(5L);
+//        customerDAO.getById(9L);
+
+        //getByIds
+//        addressDAO.getByIds(List.of(1L, 4L, 5L));
+//        customerDAO.getByIds(List.of(2L, 6L, 8L));
+
+        //getAllRecordsCount
+//        addressDAO.getAllRecordsCount();
+//        customerDAO.getAllRecordsCount();
+
+        //getRandomId
+//        addressDAO.getRandomId();
+//        customerDAO.getRandomId();
+
+        //getRandomIds
+//        addressDAO.getRandomIds(5);
+//        customerDAO.getRandomIds(6);
 
         //DeleteAll
 //        addressDAO.deleteAll();
 //        customerDAO.deleteAll();
-
-        //GetById
-        addressDAO.getById(8L);
-        customerDAO.getById(9L);
-
-        //getByIds
-        addressDAO.getByIds(List.of(1L, 4L, 5L));
-        customerDAO.getByIds(List.of(2L, 8L, 6L));
-
-        //getAllRecordsCount
-        addressDAO.getAllRecordsCount();
-        customerDAO.getAllRecordsCount();
-
-        //getRandomId
-        addressDAO.getRandomId();
-        customerDAO.getRandomId();
-
-        //getRandomIds
-        addressDAO.getRandomIds(10);
-        customerDAO.getRandomIds(5);
     }
 
     private static Address buildAddress() {
         Faker faker = new Faker();
 
         Address address = Address.builder()
-                .address_id(9L)
-                .customer_id(6L)
-                .address("34 Sveti Nikola Str.")
+                .address_id(faker.number().numberBetween(7L, 20L))
+                .customer_id(faker.number().numberBetween(1L, 12L))
+                .address(faker.address().fullAddress())
                 .city(faker.address().city())
                 .province(null)
                 .state_uk(null)
@@ -72,11 +72,11 @@ public class AppRunner {
         FakeValuesService fakeValuesService = new FakeValuesService(new Locale("en-GB"), new RandomService());
 
         Customer customer = Customer.builder()
-                .customer_id(14L)
-                .name("Pesho")
+                .customer_id(faker.number().numberBetween(13L, 20L))
+                .name(faker.name().firstName())
                 .email(fakeValuesService.bothify("????##@gmail.com"))
-                .phone("0889548621")
-                .age(31)
+                .phone(faker.numerify("############"))
+                .age(faker.random().nextInt(18, 100))
                 .address(faker.address().fullAddress())
                 .city(faker.address().city())
                 .postal_code(3547)
