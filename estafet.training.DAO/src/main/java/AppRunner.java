@@ -18,37 +18,37 @@ public class AppRunner {
         AddressDAO addressDAO = new AddressDAO();
         CustomerDAO customerDAO = new CustomerDAO();
 
-        //SaveInDB:
-        addressDAO.save(buildAddress());
-        customerDAO.save(buildCustomer());
+        //Save record in DB:
+//        addressDAO.save(buildAddress());
+//        customerDAO.save(buildCustomer());
 
-        //DeleteById
+        //Delete by Id
 //        addressDAO.deleteById(1L);
 //        customerDAO.deleteById(3L);
 
-        //GetById
+        //Get record by Id
 //        addressDAO.getById(5L);
 //        customerDAO.getById(9L);
 
-        //getByIds
+        //get List of records by List of Ids
 //        addressDAO.getByIds(List.of(1L, 4L, 5L));
 //        customerDAO.getByIds(List.of(2L, 6L, 8L));
 
-        //getAllRecordsCount
+        //get All Records Count
 //        addressDAO.getAllRecordsCount();
 //        customerDAO.getAllRecordsCount();
 
-        //getRandomId
+        //get Random record
 //        addressDAO.getRandomId();
 //        customerDAO.getRandomId();
 
-        //getRandomIds
+        //get Random Records
 //        addressDAO.getRandomIds(5);
 //        customerDAO.getRandomIds(6);
 
-        //DeleteAll
-//        addressDAO.deleteAll();
-//        customerDAO.deleteAll();
+        //Delete all records
+        addressDAO.deleteAll();
+        customerDAO.deleteAll();
     }
 
     private static Address buildAddress() {

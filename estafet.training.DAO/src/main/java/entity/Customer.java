@@ -11,7 +11,7 @@ import java.sql.Date;
  * 'Column' annotations are with 'name' value same as that of SQL column.
  * The fields are with same type as that of SQL column.
  * The annotation 'Entity' is required to mark the class capable of hold database values.
- * The annotation 'Build' is required to use Builder Design Pattern for creating a instance of type Customer.
+ * The annotation 'Build' is required to use Builder Design Pattern for creating an instance of type Customer.
  */
 @Builder
 @Entity
